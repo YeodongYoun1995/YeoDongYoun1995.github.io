@@ -24,9 +24,9 @@ author:
   avatar           : "profile.jpg"
   name             : "Yeo Dong Youn"
   pronouns         : # example: "she/her"  
-  bio              : "PhD candidate at SNU Graduate School of Data Science, advised by Sanghack Lee"
+  bio              : "PhD candidate at SNU Graduate School of Data Science"
   location         : "Seoul, South Korea"
-  employer         : "Causality Lab, Seoul National University"
+  employer         : "Causality Lab, SNU"
   uri              : # URL
   email            : "dbsduehd95@snu.ac.kr" 
 
