@@ -21,7 +21,7 @@ repository               : "YeoDongYoun1995/YeoDongYoun1995.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "/images/profile.png"
+  avatar           : "/assets/images/profile.png"
   name             : "Yeo Dong Youn"
   pronouns         : # example: "she/her"  
   bio              : "Ph.D. student at SNU Graduate School of Data Science"
