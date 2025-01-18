@@ -7,8 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-## About Me
-I am a [Your Title/Position] at [Your Institution]. My research focuses on [key research areas]. I am passionate about exploring [specific interests or goals]. Feel free to browse through my site to learn more about my work.
+Hi, welcome to my webpage! I am a [Your Title/Position] at [Your Institution]. My research focuses on [key research areas]. I am passionate about exploring [specific interests or goals]. Feel free to browse through my site to learn more about my work.
 
 ## Research Interests
 - **Interest 1**: A brief description of this research interest.
