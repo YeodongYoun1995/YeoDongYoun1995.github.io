@@ -19,9 +19,3 @@ Write a short bio about yourself here. You can include your current position, re
 
 ## Publications
 List your publications here if you want them on the homepage or link to a separate page.
-
-## Contact
-Feel free to include your contact information, such as:
-- Email: [your-email@example.com](mailto:your-email@example.com)
-- Office: Room X, Building Y
-- Phone: +XX-XXX-XXXX
