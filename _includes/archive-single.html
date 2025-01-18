@@ -13,32 +13,14 @@
 
   {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
 
-  <!-- Publication Entry -->
-  <div class="publication-entry" style="margin-bottom: 0.05em;">
-    <!-- Number and Title -->
-    <div style="display: flex; align-items: baseline; margin: 0; font-weight: bold; line-height: 1;">
-      <div style="margin-right: 0.4em;">{{ category_counter }}.</div>
-      <div>{{ post.title | markdownify | strip }}</div>
-    </div>
-
-    <!-- Authors -->
-    <p style="margin: 0; line-height: 1;">
-      {{ post.authors | markdownify | strip }}
-    </p>
-
-    <!-- Venue, Year, and PDF Link -->
-    <div style="display: flex; align-items: baseline; margin: 0; line-height: 1; flex-wrap: wrap;">
-      <div style="margin-right: 0.6em; font-style: italic;">
-        {{ post.venue | markdownify | strip }}
-      </div>
-      <div style="margin-right: 0.6em;">
-        {{ post.date | date: "%Y" }}
-      </div>
-      {% if post.paperurl %}
-        <div>
-          [<a href="{{ post.paperurl }}">PDF</a>]
-        </div>
-      {% endif %}
-    </div>
+  <!-- Single-Line Publication Entry -->
+  <div class="publication-entry" style="margin-bottom: 0.5em; line-height: 1.4;">
+    <span style="font-weight: bold;">{{ category_counter }}. {{ post.title | markdownify | strip }}</span>, 
+    <span>{{ post.authors | markdownify | strip }}</span>, 
+    <span style="font-style: italic;">{{ post.venue | markdownify | strip }}</span>, 
+    <span>{{ post.date | date: "%Y" }}</span> 
+    {% if post.paperurl %}
+      <span>[<a href="{{ post.paperurl }}">PDF</a>]</span>
+    {% endif %}
   </div>
 {% endfor %}
