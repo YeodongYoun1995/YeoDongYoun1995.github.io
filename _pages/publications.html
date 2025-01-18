@@ -12,6 +12,7 @@ author_profile: true
 {% assign category_counter = 0 %} <!-- Initialize a counter for numbering -->
 
 {% for post in site.publications reversed %}
+  <!-- Subsection Title -->
   {% if post.category != current_category %}
     {% assign current_category = post.category %}
     <h2>{{ current_category | capitalize }}</h2>
@@ -20,14 +21,19 @@ author_profile: true
 
   {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
 
-  <!-- Numbered Publications -->
+  <!-- Publication Entry -->
   <div class="publication-entry" style="margin-bottom: 1.5em;">
+    <!-- Number and Title on the Same Line -->
     <p style="margin: 0; font-weight: bold;">
       {{ category_counter }}. {{ post.title | markdownify | strip }}
     </p>
+
+    <!-- Authors -->
     <p style="margin: 0;">
       {{ post.authors | markdownify | strip }}
     </p>
+
+    <!-- Venue, Year, and PDF Link on the Same Line -->
     <p style="margin: 0;">
       <em>{{ post.venue | markdownify | strip }}</em>, {{ post.date | date: "%Y" }}
       {% if post.paperurl %}
