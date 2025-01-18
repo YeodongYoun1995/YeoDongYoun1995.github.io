@@ -12,38 +12,40 @@
   {% assign title = post.title %}
 {% endif %}
 
-<div class="{{ include.type | default: "list" }}__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    {% if include.type == "grid" and teaser %}
-      <div class="archive__item-teaser">
-        <img src=
-          {% if teaser contains "://" %}
-            "{{ teaser }}"
-          {% else %}
-            "{{ teaser | prepend: "/images/" | prepend: base_path }}"
-          {% endif %}
-          alt="">
-      </div>
-    {% endif %}
+<!-- Subsection Title for Each Category -->
+{% assign current_category = nil %}
+{% for post in site.publications reversed %}
+  {% if post.category != current_category %}
+    {% assign current_category = post.category %}
+    <h2 class="publication-category-title">{{ current_category | capitalize }}</h2>
+  {% endif %}
 
-    <!-- Title (no hyperlink) -->
-    <h2 class="archive__item-title" itemprop="headline">
-      {{ title }}
-    </h2>
-    
-    <!-- Remove "Published in" and date display -->
-    {% if post.collection == 'publications' %}
+  <div class="{{ include.type | default: "list" }}__item">
+    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+      {% if include.type == "grid" and teaser %}
+        <div class="archive__item-teaser">
+          <img src=
+            {% if teaser contains "://" %}
+              "{{ teaser }}"
+            {% else %}
+              "{{ teaser | prepend: "/images/" | prepend: base_path }}"
+            {% endif %}
+            alt="">
+        </div>
+      {% endif %}
+
+      <!-- Title -->
+      <h2 class="archive__item-title" itemprop="headline">
+        {{ title }}
+      </h2>
+      
+      <!-- Venue and Year -->
       <p><i>{{ post.venue }}</i>, {{ post.date | default: "" | date: "%Y" }}</p>
-    {% endif %}
 
-    <!-- Optional: Add custom summary or excerpt if provided -->
-    {% if post.excerpt and site.read_more != 'enabled' %}
-      <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
-    {% endif %}
-
-    <!-- Display PDF link -->
-    {% if post.paperurl %}
-      <p><a href="{{ post.paperurl }}"><strong>PDF</strong></a></p>
-    {% endif %}
-  </article>
-</div>
+      <!-- PDF Link -->
+      {% if post.paperurl %}
+        <p><a href="{{ post.paperurl }}"><strong>PDF</strong></a></p>
+      {% endif %}
+    </article>
+  </div>
+{% endfor %}
