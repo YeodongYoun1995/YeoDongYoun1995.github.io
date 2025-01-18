@@ -21,7 +21,6 @@ author:
 
 # Navigation Tabs
 header_pages:
-  - publications.md
   - cv.md
   - contact.md
 
