@@ -7,20 +7,21 @@
   <!-- Subsection Title -->
   {% if post.category != current_category %}
     {% assign current_category = post.category %}
-    <h2 style="margin-bottom: 0.2em;">{{ current_category | capitalize }}</h2>
+    <h2 style="margin-bottom: 0.5em; font-size: 1.5em;">{{ current_category | capitalize }}</h2>
     {% assign category_counter = 0 %} <!-- Reset counter for each category -->
   {% endif %}
 
   {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
 
   <!-- Single-Line Publication Entry -->
-  <div class="publication-entry" style="margin-bottom: 0.5em; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-    {{ category_counter }}. <strong>{{ post.title | markdownify | strip }}</strong>, 
-    {{ post.authors | markdownify | strip }}, 
-    <em>{{ post.venue | markdownify | strip }}</em>, 
-    {{ post.date | date: "%Y" }} 
+  <div class="publication-entry" style="margin-bottom: 0.5em; line-height: 1.6;">
+    <span style="font-weight: bold; font-size: 1.1em;">{{ category_counter }}.</span>
+    <span style="font-weight: bold;">{{ post.title | markdownify | strip }}</span>,
+    <span>{{ post.authors | markdownify | strip }}</span>,
+    <span style="font-style: italic;">{{ post.venue | markdownify | strip }}</span>,
+    <span>{{ post.date | date: "%Y" }}</span>
     {% if post.paperurl %}
-      [<a href="{{ post.paperurl }}">PDF</a>]
+      <span>[<a href="{{ post.paperurl }}" style="text-decoration: underline;">PDF</a>]</span>
     {% endif %}
   </div>
 {% endfor %}
