@@ -4,7 +4,7 @@
 {% assign category_counter = 0 %} <!-- Initialize a counter for numbering -->
 
 {% for post in site.publications reversed %}
-  <!-- Subsection Title with Automatic Numbering -->
+  <!-- Subsection Title -->
   {% if post.category != current_category %}
     {% assign current_category = post.category %}
     <h2>{{ current_category | capitalize }}</h2>
@@ -13,8 +13,9 @@
 
   {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
 
+  <!-- Publication Entry -->
   <div class="publication-entry">
-    <!-- Number and Title (No extra spacing) -->
+    <!-- Number and Title on the Same Line -->
     <p>
       <strong>{{ category_counter }}. {{ post.title | markdownify | strip }}</strong>
     </p>
@@ -22,7 +23,7 @@
     <!-- Authors -->
     <p style="margin: 0;">{{ post.authors | markdownify | strip }}</p>
 
-    <!-- Venue and Year (Inline display to prevent line breaks) -->
+    <!-- Venue, Year, and PDF Link on the Same Line -->
     <p style="margin: 0;">
       <em>{{ post.venue | markdownify | strip }}</em>, {{ post.date | date: "%Y" }}
       {% if post.paperurl %}
