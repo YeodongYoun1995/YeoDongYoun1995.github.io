@@ -20,7 +20,5 @@ Hi, welcome to my webpage! I am a [Your Title/Position] at [Your Institution]. M
 - **M.S.** in [Field], [University], [Year–Year]
 - **B.S.** in [Field], [University], [Year–Year]
 
-## Publications
-A comprehensive list of my publications can be found [here](/cv/). Below are a few selected works:
-1. **[Title of Publication 1]**, [Authors], [Journal], [Year]. [DOI or Link](#)
-2. **[Title of Publication 2]**, [Authors], [Journal], [Year]. [DOI or Link](#)
+## Curriculum Vitae
+For my other details, please refer to my CV.
