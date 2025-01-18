@@ -5,13 +5,34 @@ permalink: /publications/
 author_profile: true
 ---
 
-<!-- {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %} -->
-
 {% include base_path %}
 
-<!-- Sort publications by year (latest first) -->
+<!-- Group publications by category -->
+{% assign current_category = nil %}
+{% assign category_counter = 0 %} <!-- Initialize a counter for numbering -->
+
 {% for post in site.publications reversed %}
-  {% include archive-single.html %}
+  {% if post.category != current_category %}
+    {% assign current_category = post.category %}
+    <h2>{{ current_category | capitalize }}</h2>
+    {% assign category_counter = 0 %} <!-- Reset counter for each category -->
+  {% endif %}
+
+  {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
+
+  <!-- Numbered Publications -->
+  <div class="publication-entry" style="margin-bottom: 1.5em;">
+    <p style="margin: 0; font-weight: bold;">
+      {{ category_counter }}. {{ post.title | markdownify | strip }}
+    </p>
+    <p style="margin: 0;">
+      {{ post.authors | markdownify | strip }}
+    </p>
+    <p style="margin: 0;">
+      <em>{{ post.venue | markdownify | strip }}</em>, {{ post.date | date: "%Y" }}
+      {% if post.paperurl %}
+        [<a href="{{ post.paperurl }}">PDF</a>]
+      {% endif %}
+    </p>
+  </div>
 {% endfor %}
