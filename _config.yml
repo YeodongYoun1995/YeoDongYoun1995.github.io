@@ -91,7 +91,8 @@ collections:
   teaching:
     output: false
   publications:
-    output: false
+    output: true
+    permalink: /:collection/:path/
   portfolio:
     output: false
   talks:
