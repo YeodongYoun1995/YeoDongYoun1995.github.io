@@ -16,9 +16,10 @@
   <!-- Publication Entry -->
   <div class="publication-entry" style="margin-bottom: 1em;">
     <!-- Number and Title on the Same Line -->
-    <p style="margin: 0; font-weight: bold;">
-      {{ category_counter }}. {{ post.title | markdownify | strip }}
-    </p>
+    <div style="margin: 0; font-weight: bold;">
+      <span>{{ category_counter }}.</span>
+      <span>{{ post.title | markdownify | strip }}</span>
+    </div>
 
     <!-- Authors -->
     <p style="margin: 0;">
