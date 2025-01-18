@@ -1,16 +1,27 @@
 {% include base_path %}
 
 {% assign current_category = nil %}
+{% assign category_counter = 0 %} <!-- Initialize a counter for numbering -->
+
 {% for post in site.publications reversed %}
+  <!-- Subsection Title with Automatic Numbering -->
   {% if post.category != current_category %}
     {% assign current_category = post.category %}
     <h2>{{ current_category | capitalize }}</h2>
+    {% assign category_counter = 0 %} <!-- Reset counter for each category -->
   {% endif %}
 
+  {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
+
   <div class="publication-entry">
-    <strong>{{ post.title }}</strong>  
-    {{ post.authors | markdownify }}  
-    <em>{{ post.venue }}</em>, {{ post.date | date: "%Y" }}  
+    <!-- Numbering and Title -->
+    <strong>{{ category_counter }}. {{ post.title | markdownify | strip }}</strong><br>
+
+    <!-- Authors -->
+    <span>{{ post.authors | markdownify | strip }}</span><br>
+
+    <!-- Venue and Year -->
+    <em>{{ post.venue | markdownify | strip }}</em>, {{ post.date | date: "%Y" }}  
     {% if post.paperurl %}
       [<a href="{{ post.paperurl }}">PDF</a>]
     {% endif %}
