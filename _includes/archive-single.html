@@ -3,37 +3,24 @@
 {% assign current_category = nil %}
 {% assign category_counter = 0 %} <!-- Initialize a counter for numbering -->
 
-<!-- Add custom styles for publication entries -->
-<style>
-  .publication-entry {
-    display: inline !important; 
-    margin: 0 !important; 
-    padding: 0 !important;
-    line-height: 1.4 !important; 
-    white-space: nowrap !important;
-  }
-</style>
+{% for post in site.publications reversed %}
+  <!-- Subsection Title -->
+  {% if post.category != current_category %}
+    {% assign current_category = post.category %}
+    <h2 style="margin-bottom: 0.2em;">{{ current_category | capitalize }}</h2>
+    {% assign category_counter = 0 %} <!-- Reset counter for each category -->
+  {% endif %}
 
-<div class="publications-container" style="display: block;">
-  {% for post in site.publications reversed %}
-    <!-- Subsection Title -->
-    {% if post.category != current_category %}
-      {% assign current_category = post.category %}
-      <h2 style="margin-bottom: 0.2em;">{{ current_category | capitalize }}</h2>
-      {% assign category_counter = 0 %} <!-- Reset counter for each category -->
+  {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
+
+  <!-- Single-Line Publication Entry -->
+  <div class="publication-entry" style="margin-bottom: 0.5em; line-height: 1.4; white-space: nowrap;">
+    {{ category_counter }}. <strong>{{ post.title | markdownify | strip }}</strong>, 
+    {{ post.authors | markdownify | strip }}, 
+    <em>{{ post.venue | markdownify | strip }}</em>, 
+    {{ post.date | date: "%Y" }} 
+    {% if post.paperurl %}
+      [<a href="{{ post.paperurl }}">PDF</a>]
     {% endif %}
-
-    {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
-
-    <!-- Single-Line Publication Entry -->
-    <span class="publication-entry">
-      {{ category_counter }}. <strong>{{ post.title | markdownify | strip }}</strong>, 
-      {{ post.authors | markdownify | strip }}, 
-      <em>{{ post.venue | markdownify | strip }}</em>, 
-      {{ post.date | date: "%Y" }} 
-      {% if post.paperurl %}
-        [<a href="{{ post.paperurl }}">PDF</a>]
-      {% endif %}
-    </span>
-  {% endfor %}
-</div>
+  </div>
+{% endfor %}
