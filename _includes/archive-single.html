@@ -31,11 +31,21 @@
     </p>
 
     <!-- Venue, Year, and PDF Link on the Same Line -->
-    <p style="margin: 0;">
-      <em>{{ post.venue | markdownify | strip }}</em>, {{ post.date | date: "%Y" }}
-      {% if post.paperurl %}
+  <div style="margin: 0.5em 0; line-height: 1.5; display: flex; align-items: center; flex-wrap: wrap;">
+    <!-- Venue -->
+    <span style="margin-right: 1em; font-style: italic;">
+      {{ post.venue | markdownify | strip }}
+    </span>
+  
+    <!-- Date -->
+    <span style="margin-right: 1em;">
+      {{ post.date | date: "%Y" }}
+    </span>
+  
+    <!-- PDF Link -->
+    {% if post.paperurl %}
+      <span>
         [<a href="{{ post.paperurl }}">PDF</a>]
-      {% endif %}
-    </p>
+      </span>
+    {% endif %}
   </div>
-{% endfor %}
