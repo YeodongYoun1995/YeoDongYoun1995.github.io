@@ -15,10 +15,10 @@
 
   <!-- Publication Entry -->
   <div class="publication-entry" style="margin-bottom: 1em;">
-    <!-- Number and Title on the Same Line -->
+    <!-- Number and Title -->
     <div style="display: flex; align-items: center; margin: 0; font-weight: bold; line-height: 1.3;">
-      <span style="margin-right: 0.5em;">{{ category_counter }}.</span>
-      <span>{{ post.title | markdownify | strip }}</span>
+      <div style="margin-right: 0.5em;">{{ category_counter }}.</div>
+      <div>{{ post.title | markdownify | strip }}</div>
     </div>
 
     <!-- Authors -->
@@ -26,23 +26,18 @@
       {{ post.authors | markdownify | strip }}
     </p>
 
-    <!-- Venue, Year, and PDF Link on the Same Line -->
+    <!-- Venue, Year, and PDF Link -->
     <div style="display: flex; align-items: baseline; margin: 0; line-height: 1.3; flex-wrap: wrap;">
-      <!-- Venue -->
-      <span style="margin-right: 0.8em; font-style: italic;">
+      <div style="margin-right: 0.8em; font-style: italic;">
         {{ post.venue | markdownify | strip }}
-      </span>
-
-      <!-- Date -->
-      <span style="margin-right: 0.8em;">
+      </div>
+      <div style="margin-right: 0.8em;">
         {{ post.date | date: "%Y" }}
-      </span>
-
-      <!-- PDF Link -->
+      </div>
       {% if post.paperurl %}
-        <span>
+        <div>
           [<a href="{{ post.paperurl }}">PDF</a>]
-        </span>
+        </div>
       {% endif %}
     </div>
   </div>
