@@ -91,7 +91,7 @@ collections:
   teaching:
     output: false
   publications:
-    output: false
+    output: true
   portfolio:
     output: false
   talks:
