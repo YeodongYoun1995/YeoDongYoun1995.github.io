@@ -16,28 +16,29 @@
   <!-- Publication Entry -->
   <div class="publication-entry" style="margin-bottom: 1.5em;">
     <!-- Number and Title on the Same Line -->
-    <div style="margin: 0; font-weight: bold; display: flex; align-items: center;">
-      <span style="display: inline; margin-right: 0.5em; line-height: 1; vertical-align: middle;">
-        {{ category_counter }}.
-      </span>
-      <span style="display: inline; line-height: 1; vertical-align: middle;">
-        {{ post.title | markdownify | strip }}
-      </span>
+    <div style="display: flex; align-items: center; margin: 0; font-weight: bold; line-height: 1.2;">
+      <span style="margin-right: 0.5em;">{{ category_counter }}.</span>
+      <span>{{ post.title | markdownify | strip }}</span>
     </div>
 
     <!-- Authors -->
-    <p style="margin: 0.5em 0; line-height: 1.5;">
+    <p style="margin: 0.3em 0; line-height: 1.2;">
       {{ post.authors | markdownify | strip }}
     </p>
 
     <!-- Venue, Year, and PDF Link on the Same Line -->
-    <div style="margin: 0.5em 0; line-height: 1.5; display: flex; align-items: center; flex-wrap: wrap;">
-      <span style="margin-right: 1em; font-style: italic;">
+    <div style="display: flex; align-items: center; margin: 0; line-height: 1.2; flex-wrap: wrap;">
+      <!-- Venue -->
+      <span style="margin-right: 0.8em; font-style: italic;">
         {{ post.venue | markdownify | strip }}
       </span>
-      <span style="margin-right: 1em;">
+
+      <!-- Date -->
+      <span style="margin-right: 0.8em;">
         {{ post.date | date: "%Y" }}
       </span>
+
+      <!-- PDF Link -->
       {% if post.paperurl %}
         <span>
           [<a href="{{ post.paperurl }}">PDF</a>]
@@ -46,5 +47,3 @@
     </div>
   </div>
 {% endfor %}
-
-
