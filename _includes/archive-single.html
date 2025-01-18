@@ -6,11 +6,11 @@
 <!-- Add custom styles for publication entries -->
 <style>
   .publication-entry {
-    display: inline; 
-    margin: 0; 
-    padding: 0;
-    line-height: 1.4; 
-    white-space: nowrap;
+    display: inline !important; 
+    margin: 0 !important; 
+    padding: 0 !important;
+    line-height: 1.4 !important; 
+    white-space: nowrap !important;
   }
 </style>
 
@@ -26,7 +26,7 @@
     {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
 
     <!-- Single-Line Publication Entry -->
-    <div class="publication-entry">
+    <span class="publication-entry">
       {{ category_counter }}. <strong>{{ post.title | markdownify | strip }}</strong>, 
       {{ post.authors | markdownify | strip }}, 
       <em>{{ post.venue | markdownify | strip }}</em>, 
@@ -34,6 +34,6 @@
       {% if post.paperurl %}
         [<a href="{{ post.paperurl }}">PDF</a>]
       {% endif %}
-    </div>
+    </span>
   {% endfor %}
 </div>
