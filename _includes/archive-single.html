@@ -14,20 +14,20 @@
   {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
 
     <!-- Publication Entry -->
-  <div class="publication-entry" style="margin-bottom: 0.8em;">
+  <div class="publication-entry" style="margin-bottom: 0.1em;">
     <!-- Number and Title -->
-    <div style="display: flex; align-items: baseline; margin: 0; font-weight: bold; line-height: 0.4;">
+    <div style="display: flex; align-items: baseline; margin: 0; font-weight: bold; line-height: 0.1;">
       <div style="margin-right: 0.5em;">{{ category_counter }}.</div>
       <div>{{ post.title | markdownify | strip }}</div>
     </div>
   
     <!-- Authors -->
-    <p style="margin: 0.1em 0; line-height: 0.4;">
+    <p style="margin: 0.1em 0; line-height: 0.1;">
       {{ post.authors | markdownify | strip }}
     </p>
   
     <!-- Venue, Year, and PDF Link -->
-    <div style="display: flex; align-items: baseline; margin: 0; line-height: 0.4; flex-wrap: wrap;">
+    <div style="display: flex; align-items: baseline; margin: 0; line-height: 0.1; flex-wrap: wrap;">
       <div style="margin-right: 0.8em; font-style: italic;">
         {{ post.venue | markdownify | strip }}
       </div>
