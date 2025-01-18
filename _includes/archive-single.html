@@ -14,16 +14,20 @@
   {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
 
   <div class="publication-entry">
-    <!-- Numbering and Title -->
-    <strong>{{ category_counter }}. {{ post.title | markdownify | strip }}</strong><br>
+    <!-- Number and Title (No extra spacing) -->
+    <p>
+      <strong>{{ category_counter }}. {{ post.title | markdownify | strip }}</strong>
+    </p>
 
     <!-- Authors -->
-    <span>{{ post.authors | markdownify | strip }}</span><br>
+    <p style="margin: 0;">{{ post.authors | markdownify | strip }}</p>
 
-    <!-- Venue and Year -->
-    <em>{{ post.venue | markdownify | strip }}</em>, {{ post.date | date: "%Y" }}  
-    {% if post.paperurl %}
-      [<a href="{{ post.paperurl }}">PDF</a>]
-    {% endif %}
+    <!-- Venue and Year (Inline display to prevent line breaks) -->
+    <p style="margin: 0;">
+      <em>{{ post.venue | markdownify | strip }}</em>, {{ post.date | date: "%Y" }}
+      {% if post.paperurl %}
+        [<a href="{{ post.paperurl }}">PDF</a>]
+      {% endif %}
+    </p>
   </div>
 {% endfor %}
