@@ -399,3 +399,30 @@
   font-size: $type-size-6;
   text-transform: uppercase;
 }
+
+/*
+   publication-entry
+   ========================================================================== */
+
+.publication-entry {
+  /* Make the content display inline and wrap naturally */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5em; /* Adds spacing between elements */
+  line-height: 1.4; /* Adjust line height for readability */
+  margin-bottom: 0.5em; /* Space between entries */
+  font-size: 1em; /* Adjust size if needed */
+}
+
+.publication-entry a {
+  text-decoration: underline; /* Style links specifically */
+}
+
+.publication-entry strong {
+  font-weight: bold; /* Keep titles bold */
+}
+
+.publication-entry em {
+  font-style: italic; /* Keep venue italicized */
+}
