@@ -21,4 +21,4 @@ Hi, welcome to my webpage! I am a [Your Title/Position] at [Your Institution]. M
 - **B.S.** in [Field], [University], [Year–Year]
 
 ## Curriculum Vitae
-For my other details, please refer to my CV.
+For other details, please refer to my CV.
