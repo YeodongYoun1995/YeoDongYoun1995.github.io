@@ -24,11 +24,74 @@ header_pages:
   - cv.md
   - contact.md
 
+# Publication Category
+publication_category:
+  books:
+    title: 'Books'
+  manuscripts:
+    title: 'Journal Articles'    
+  conferences:
+    title: 'Conference Papers'
+
+# Other Configuration
+teaser                   :  
+breadcrumbs              : false
+words_per_minute         : 160
+future                   : true
+read_more                : "disabled"
+comments:
+  provider               : 
+atom_feed:
+  hide                   : false
+  path                   :
+
+# SEO Related
+google_site_verification :
+bing_site_verification   :
+alexa_site_verification  :
+yandex_site_verification :
+
+# Social Sharing
+twitter:
+  username               : &twitter
+facebook:
+  username               :
+  app_id                 :
+og_image                 : 
+
+# Analytics
+analytics:
+  provider               : "false"
+
+# Reading Files
+include:
+  - .htaccess
+  - _pages
+  - files
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .github
+  - .jekyll-assets-cache
+  - .sass-cache
+  - CHANGELOG
+  - LICENSE
+  - README
+  - tmp
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+
 # Collections
 collections:
   teaching:
     output: false
   publications:
+    output: false
     output: true
     permalink: /:collection/:path/
   portfolio:
@@ -56,24 +119,6 @@ defaults:
     values:
       layout: single
       author_profile: true
-  - scope:
-      path: ""
-      type: publications
-    values:
-      layout: archive
-      author_profile: true
-
-# Other Configurations (unchanged)
-teaser                   :  
-breadcrumbs              : false
-words_per_minute         : 160
-future                   : true
-read_more                : "disabled"
-comments:
-  provider               : 
-atom_feed:
-  hide                   : false
-  path                   :
 
 # Sass/SCSS
 sass:
