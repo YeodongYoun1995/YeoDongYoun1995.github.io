@@ -14,12 +14,12 @@
   {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
 
   <!-- Single-Line Publication Entry -->
-  <div class="publication-entry" style="line-height: 1.6;">
+  <div class="publication-entry" style="margin-bottom: 0.5em; line-height: 1.6;">
     <span style="font-weight: bold;">{{ category_counter }}.</span>
-    <span style="font-weight: bold;">{{ post.title | markdownify | strip }}</span>
-    {% if post.authors %}, <span>{{ post.authors | markdownify | strip }}</span>{% endif %}
-    {% if post.venue %}, <span style="font-style: italic;">{{ post.venue | markdownify | strip }}</span>{% endif %}
-    {% if post.date %}, <span>{{ post.date | date: "%Y" }}</span>{% endif %}
-    {% if post.paperurl %}, <span>[<a href="{{ post.paperurl }}" style="text-decoration: underline;">PDF</a>]</span>{% endif %}
+    <span style="font-weight: bold;">{{ post.title | markdownify | strip }}</span>{% if post.authors or post.venue or post.date or post.paperurl %},{% endif %}
+    {% if post.authors %} <span>{{ post.authors | markdownify | strip }}</span>{% if post.venue or post.date or post.paperurl %},{% endif %}{% endif %}
+    {% if post.venue %} <span style="font-style: italic;">{{ post.venue | markdownify | strip }}</span>{% if post.date or post.paperurl %},{% endif %}{% endif %}
+    {% if post.date %} <span>{{ post.date | date: "%Y" }}</span>{% if post.paperurl %},{% endif %}{% endif %}
+    {% if post.paperurl %} <span>[<a href="{{ post.paperurl }}" style="text-decoration: underline;">PDF</a>]</span>{% endif %}
   </div>
 {% endfor %}
