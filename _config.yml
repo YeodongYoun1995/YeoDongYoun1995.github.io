@@ -96,6 +96,9 @@ collections:
     output: false
   talks:
     output: false
+  pages:
+    output: true
+    permalink: /:path/
 
 # Defaults
 defaults:
