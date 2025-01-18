@@ -17,10 +17,13 @@
   <div class="publication-entry" style="margin-bottom: 1em;">
     <!-- Number and Title on the Same Line -->
     <div style="margin: 0; font-weight: bold; display: flex; align-items: center;">
-      <span style="display: inline; margin-right: 0.5em;">{{ category_counter }}.</span>
-      <span style="display: inline;">{{ post.title | markdownify | strip }}</span>
+      <span style="display: inline; margin-right: 0.5em; line-height: 1; vertical-align: middle;">
+        {{ category_counter }}.
+      </span>
+      <span style="display: inline; line-height: 1; vertical-align: middle;">
+        {{ post.title | markdownify | strip }}
+      </span>
     </div>
-  </div>
 
     <!-- Authors -->
     <p style="margin: 0;">
