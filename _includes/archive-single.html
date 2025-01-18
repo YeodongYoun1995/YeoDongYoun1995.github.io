@@ -14,7 +14,7 @@
   {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
 
   <!-- Single-Line Publication Entry -->
-  <div class="publication-entry" style="margin-bottom: 0.5em; line-height: 1.4; white-space: nowrap;">
+  <span class="publication-entry" style="margin-bottom: 0.5em; line-height: 1.4;">
     {{ category_counter }}. <strong>{{ post.title | markdownify | strip }}</strong>, 
     {{ post.authors | markdownify | strip }}, 
     <em>{{ post.venue | markdownify | strip }}</em>, 
@@ -22,5 +22,6 @@
     {% if post.paperurl %}
       [<a href="{{ post.paperurl }}">PDF</a>]
     {% endif %}
-  </div>
+  </span>
+  <br/>
 {% endfor %}
