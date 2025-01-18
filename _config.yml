@@ -92,6 +92,7 @@ collections:
     output: false
   publications:
     output: true
+    permalink: /:collections/:publications/
   portfolio:
     output: false
   talks:
