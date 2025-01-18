@@ -1,51 +1,18 @@
 {% include base_path %}
 
-{% if post.header.teaser %}
-  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
-{% else %}
-  {% assign teaser = site.teaser %}
-{% endif %}
-
-{% if post.id %}
-  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
-{% else %}
-  {% assign title = post.title %}
-{% endif %}
-
-<!-- Subsection Title for Each Category -->
 {% assign current_category = nil %}
 {% for post in site.publications reversed %}
   {% if post.category != current_category %}
     {% assign current_category = post.category %}
-    <h2 class="publication-category-title">{{ current_category | capitalize }}</h2>
+    <h2>{{ current_category | capitalize }}</h2>
   {% endif %}
 
-  <div class="{{ include.type | default: "list" }}__item">
-    <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-      {% if include.type == "grid" and teaser %}
-        <div class="archive__item-teaser">
-          <img src=
-            {% if teaser contains "://" %}
-              "{{ teaser }}"
-            {% else %}
-              "{{ teaser | prepend: "/images/" | prepend: base_path }}"
-            {% endif %}
-            alt="">
-        </div>
-      {% endif %}
-
-      <!-- Title -->
-      <h2 class="archive__item-title" itemprop="headline">
-        {{ title }}
-      </h2>
-      
-      <!-- Venue and Year -->
-      <p><i>{{ post.venue }}</i>, {{ post.date | default: "" | date: "%Y" }}</p>
-
-      <!-- PDF Link -->
-      {% if post.paperurl %}
-        <p><a href="{{ post.paperurl }}"><strong>PDF</strong></a></p>
-      {% endif %}
-    </article>
+  <div class="publication-entry">
+    <strong>{{ post.title }}</strong>  
+    {{ post.authors | markdownify }}  
+    <em>{{ post.venue }}</em>, {{ post.date | date: "%Y" }}  
+    {% if post.paperurl %}
+      [<a href="{{ post.paperurl }}">PDF</a>]
+    {% endif %}
   </div>
 {% endfor %}
