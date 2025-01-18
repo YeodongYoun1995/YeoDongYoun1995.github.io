@@ -3,25 +3,27 @@
 {% assign current_category = nil %}
 {% assign category_counter = 0 %} <!-- Initialize a counter for numbering -->
 
-{% for post in site.publications reversed %}
-  <!-- Subsection Title -->
-  {% if post.category != current_category %}
-    {% assign current_category = post.category %}
-    <h2 style="margin-bottom: 0.2em;">{{ current_category | capitalize }}</h2>
-    {% assign category_counter = 0 %} <!-- Reset counter for each category -->
-  {% endif %}
-
-  {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
-
-  <!-- Single-Line Publication Entry -->
-  <span class="publication-entry" style="margin-bottom: 0.5em; line-height: 1.4;">
-    {{ category_counter }}. <strong>{{ post.title | markdownify | strip }}</strong>, 
-    {{ post.authors | markdownify | strip }}, 
-    <em>{{ post.venue | markdownify | strip }}</em>, 
-    {{ post.date | date: "%Y" }} 
-    {% if post.paperurl %}
-      [<a href="{{ post.paperurl }}">PDF</a>]
+<div class="publications-container" style="display: flex; flex-wrap: wrap; gap: 1em; align-items: baseline;">
+  {% for post in site.publications reversed %}
+    <!-- Subsection Title -->
+    {% if post.category != current_category %}
+      {% assign current_category = post.category %}
+      <h2 style="flex-basis: 100%; margin-bottom: 0.2em;">{{ current_category | capitalize }}</h2>
+      {% assign category_counter = 0 %} <!-- Reset counter for each category -->
     {% endif %}
-  </span>
-  <br/>
-{% endfor %}
+
+    {% assign category_counter = category_counter | plus: 1 %} <!-- Increment counter -->
+
+    <!-- Single-Line Publication Entry -->
+    <div class="publication-entry" style="line-height: 1.4;">
+      {{ category_counter }}. <strong>{{ post.title | markdownify | strip }}</strong>, 
+      {{ post.authors | markdownify | strip }}, 
+      <em>{{ post.venue | markdownify | strip }}</em>, 
+      {{ post.date | date: "%Y" }} 
+      {% if post.paperurl %}
+        [<a href="{{ post.paperurl }}">PDF</a>]
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
