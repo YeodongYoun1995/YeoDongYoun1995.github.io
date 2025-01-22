@@ -7,7 +7,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
-Hi, welcome to my webpage! I am currently a Ph.D. student at [Seoul National University](https://gsds.snu.ac.kr) (SNU), working under the supervision of Professor [Sanghack Lee](https://sanghacklee.me). Before joining the Ph.D. program, I earned my Master’s degree in Artificial Intelligence from the [Korea Advanced Institute of Science and Technology](https://gsai.kaist.ac.kr)(KAIST), and a Bachelor’s degree from SNU, where I majored in Economics and minored in Mathematics.
+Hi, welcome to my webpage! I am currently a Ph.D. student at [Seoul National University](https://gsds.snu.ac.kr) (SNU), working under the supervision of Prof. [Sanghack Lee](https://sanghacklee.me). Before joining the Ph.D. program, I earned my Master’s degree in Artificial Intelligence from the [Korea Advanced Institute of Science and Technology](https://gsai.kaist.ac.kr)(KAIST), and a Bachelor’s degree from SNU, where I majored in Economics and minored in Mathematics.
 
 ## Research Interests
 - **Causal NLP**: I am investigating how large language models (LLMs) fail to address higher-order causal inference tasks(measuring the interventional or counterfactual effect), that cannot be resolved by learning mere associations. My research focuses on analyzing these limitations and exploring auxiliary methods to overcome them, enabling LLMs to perform more robustly in causal inference scenarios.
